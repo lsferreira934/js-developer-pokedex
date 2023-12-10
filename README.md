@@ -65,9 +65,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Tailwindcss
 - Javascript
 - HTML
+- CSS
 
-
-> Veja o arquivo completo [package.json](https://github.com/lsferreira934/js-developer-pokedex/blob/master/package.json)
 ---
 
 ## [](https://github.com/lsferreira934) 👨🏽‍💻 Autor
