@@ -1,46 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
 
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- Font Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap"
+      rel="stylesheet"
+    /> -->
 
     <!-- Nosso CSS -->
-    <link rel="stylesheet" href="/assets/css/global.css">
-    <link rel="stylesheet" href="/assets/css/pokedex.css">
-</head>
+    <!-- <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/pokedex.css" /> -->
 
-<body>
-    <section class="content">
-        <h1>Pokedex</h1>
+    <!-- Nosso tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          screens: {
+            xs: "380px",
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1280px",
+            "2xl": "1536px",
+          },
+          extend: {
+            colors: {
+              normal: "#c0c0a0",
+              grass: "#a0d88b",
+              fire: "#ff9f6a",
+              water: "#89aee9",
+              electric: "#fbd872",
+              ice: "#b3e0e2",
+              ground: "#e8d985",
+              flying: "#b39bf7",
+              poison: "#b874b8",
+              fighting: "#d24d47",
+              psychic: "#ff6c99",
+              dark: "#8c7d6f",
+              rock: "#d9cd66",
+              bug: "#c1c877",
+              ghost: "#8e79b8",
+              steel: "#ccc9e1",
+              dragon: "#8e63fc",
+              fairy: "#fbc0d9",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
 
-        <ol id="pokemonList" class="pokemons">
-            <!-- ..... Pokemons here ..... -->
-        </ol>
+  <body>
+    <section
+      class="w-screen h-screen p-2 lg:w-[992px] lg:h-auto lg:mx-auto lg:my-4 overflow-y-auto"
+    >
+      <h1 class="text-4xl font-extrabold mb-5">Pokedex</h1>
 
-        <div class="pagination">
-            <button id="loadMoreButton" type="button">
-                Load More
-            </button>
-        </div>
+      <ol
+        id="pokemonList"
+        class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 grid-rows-3 m-0 p-0 gap-2"
+      >
+        <!-- ..... Pokemons here ..... -->
+      </ol>
+
+      <div class="flex flex-row justify-center items-center w-full p-2">
+        <button class="shadow-xl font-bold py-2 px-4 mx-auto my-1 text-sm text-white bg-[#6c79db] rounded-xl" id="loadMoreButton" type="button">Load More</button>
+      </div>
     </section>
+
+    <div id="modalDetails" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div id="modalBody" class="flex min-h-full justify-center p-4 sm:p-0">
+         
+        </div>
+      </div>
+    </div>
 
     <!-- Nosso JS -->
     <script src="/assets/js/pokemon-model.js"></script>
     <script src="/assets/js/poke-api.js"></script>
     <script src="/assets/js/main.js"></script>
-</body>
-
+  </body>
 </html>
