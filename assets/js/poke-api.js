@@ -31,7 +31,6 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon.habitat = pokeDetail.habitat
     pokemon.evolutionTo = pokeDetail.evolutionChain.map((evolution) => ({ name: evolution.name, id: evolution.id }))
 
-    console.log(pokemon)
     return pokemon
 }
 
